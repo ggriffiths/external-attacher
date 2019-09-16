@@ -122,7 +122,7 @@ func main() {
 		csiAttacher = dummyAttacherName
 	} else {
 		// Connect to CSI.
-		csiConn, err := connection.Connect(*csiAddress)
+		csiConn, err := connection.Connect(*csiAddress, connection.OnConnectionLoss(connection.ExitOnConnectionLoss()))
 		if err != nil {
 			klog.Error(err.Error())
 			os.Exit(1)
