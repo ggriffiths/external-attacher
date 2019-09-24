@@ -118,7 +118,7 @@ func (ctrl *CSIAttachController) Run(workers int, stopCh <-chan struct{}) {
 		return
 	}
 	for i := 0; i < workers; i++ {
-		go wait.Until(ctrl.syncVA, 0, stopCh)
+		//go wait.Until(ctrl.syncVA, 0, stopCh)
 		go wait.Until(ctrl.syncPV, 0, stopCh)
 	}
 

@@ -89,7 +89,7 @@ func (h *csiHandler) SyncNewOrUpdatedVolumeAttachment(va *storage.VolumeAttachme
 
 	var err error
 	if va.DeletionTimestamp == nil {
-		err = h.syncAttach(va)
+		err = h.syncDetach(va)
 	} else {
 		err = h.syncDetach(va)
 	}
